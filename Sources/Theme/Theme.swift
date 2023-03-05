@@ -21,7 +21,6 @@ public protocol Themeable {
     var switchColor:UIColor {get}
     var thumbnailImage:UIImage? {get}
     var subViewColor:UIColor {get}
-    var barStyle: UIBarStyle { get }
     var isSelected:Bool {set get}
 }
 extension Themeable{
@@ -47,7 +46,8 @@ public func apply(for application: UIApplication) {
     ToggleSwitch.appearance().onTintColor = switchColor
     
     UITabBar.appearance().backgroundColor = lightButtonBGColor
-    UITabBar.appearance().tintColor = lightButtonTextColor
+    UITabBar.appearance().tintColor = darkButtonBGColor
+    UITabBar.appearance().unselectedItemTintColor = lightButtonTextColor
     UITableView.appearance().backgroundColor = .systemFill
     application.windows.reload()
 }
